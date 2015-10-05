@@ -4,8 +4,8 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 
 BarberSchema = new Schema
-  name: String
-  info: String
-  active: Boolean
+  name:
+    type: String
+    required: true
 
 module.exports = mongoose.model 'Barber', BarberSchema
