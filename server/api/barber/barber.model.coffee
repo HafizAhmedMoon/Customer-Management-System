@@ -8,4 +8,10 @@ BarberSchema = new Schema
     type: String
     required: true
 
-module.exports = mongoose.model 'Barber', BarberSchema
+model = module.exports = mongoose.model 'Barber', BarberSchema
+
+BarberSchema.pre 'save', (next) ->
+  error = if not @name then 'name must be exist'
+  if error
+    next new Error error
+  else next()
