@@ -4,26 +4,102 @@ to disable, edit config/environment/index.js, and set `seedDB: false`
 ###
 
 'use strict'
+barbers = []
+Barber = require '../api/barber/barber.model'
+Customer = require '../api/customer/customer.model'
 
-Thing = require '../api/thing/thing.model'
+getRandomBarber = () ->
+  barbers[Math.floor Math.random() * barbers.length]._id
 
+Barber.find {}
+.remove ->
+  barbers = [
+    new Barber name: 'David'
+    new Barber name: 'Sam'
+    new Barber name: 'Nancy'
+    new Barber name: 'Marcy'
+    ]
+  barber.save() for barber in barbers
 
-Thing.find({}).remove ->
-  Thing.create
-    name: 'Development Tools'
-    info: 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
+Customer.find {}
+.remove ->
+  Customer.create
+    name: 'Camille Poynor'
+    email: 'Camille Poynor'
+    preferred: getRandomBarber()
   ,
-    name: 'Server and Client integration'
-    info: 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
+    name: 'Lynetta Brunette'
+    email: 'Lynetta Brunette'
+    preferred: getRandomBarber()
   ,
-    name: 'Smart Build System'
-    info: 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
+    name: 'Melinda Montandon'
+    email: 'Melinda Montandon'
+    preferred: getRandomBarber()
   ,
-    name: 'Modular Structure'
-    info: 'Best practice client and server structures allow for more code reusability and maximum scalability'
+    name: 'Lavenia Constantino'
+    email: 'Lavenia Constantino'
+    preferred: getRandomBarber()
   ,
-    name: 'Optimized Build'
-    info: 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
+    name: 'Hye Vowels'
+    email: 'Hye Vowels'
+    preferred: getRandomBarber()
   ,
-    name: 'Deployment Ready'
-    info: 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+    name: 'Lisabeth Rollo'
+    email: 'Lisabeth Rollo'
+    preferred: getRandomBarber()
+  ,
+    name: 'William Chu'
+    email: 'William Chu'
+    preferred: getRandomBarber()
+  ,
+    name: 'Giovanni Surface'
+    email: 'Giovanni Surface'
+    preferred: getRandomBarber()
+  ,
+    name: 'Janie Mchugh'
+    email: 'Janie Mchugh'
+    preferred: getRandomBarber()
+  ,
+    name: 'Roxana Curfman'
+    email: 'Roxana Curfman'
+    preferred: getRandomBarber()
+  ,
+    name: 'Zena Kates'
+    email: 'Zena Kates'
+    preferred: getRandomBarber()
+  ,
+    name: 'Edward Kwiatkowski'
+    email: 'Edward Kwiatkowski'
+    preferred: getRandomBarber()
+  ,
+    name: 'Shanon Sinegal'
+    email: 'Shanon Sinegal'
+    preferred: getRandomBarber()
+  ,
+    name: 'Loria Ebright'
+    email: 'Loria Ebright'
+    preferred: getRandomBarber()
+  ,
+    name: 'Jenae Mouzon'
+    email: 'Jenae Mouzon'
+    preferred: getRandomBarber()
+  ,
+    name: 'Reta Graziano'
+    email: 'Reta Graziano'
+    preferred: getRandomBarber()
+  ,
+    name: 'Sherise Fell'
+    email: 'Sherise Fell'
+    preferred: getRandomBarber()
+  ,
+    name: 'Elizbeth Kagan'
+    email: 'Elizbeth Kagan'
+    preferred: getRandomBarber()
+  ,
+    name: 'Libby Lucy'
+    email: 'Libby Lucy'
+    preferred: getRandomBarber()
+  ,
+    name: 'Winston Reinsch'
+    email: 'Winston Reinsch'
+    preferred: getRandomBarber()
