@@ -6,7 +6,6 @@ Schema = mongoose.Schema
 BarberSchema = new Schema
   name:
     type: String
-    required: true
 
 model = module.exports = mongoose.model 'Barber', BarberSchema
 

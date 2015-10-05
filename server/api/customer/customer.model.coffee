@@ -6,11 +6,9 @@ Schema = mongoose.Schema
 CustomerSchema = new Schema
   name:
     type: String
-    required: true
   email:
     type: String
     unique: true
-    required: true
   preferred:
     type: Schema.Types.ObjectId
     ref: 'Barber'
@@ -19,7 +17,7 @@ model = module.exports = mongoose.model 'Customer', CustomerSchema
 
 CustomerSchema.pre 'save', (next) ->
   self = @;
-  model.findOne email: @email, 'name email', (err, results = {}) ->
+  model.findOne email: @email, 'email', (err, results = {}) ->
     error = switch true
       when not self.name then 'name must be exist'
       when not self.email then 'email must be exist'
