@@ -21,8 +21,7 @@ CustomerSchema.pre 'save', (next) ->
     error = switch true
       when not self.name then 'name must be exist'
       when not self.email then 'email must be exist'
-      when results.email is self.email then 'email already exist'
-
+      when results.email is self.email and String(results._id) isnt String(self._id) then 'email already exist'
     if err
       next err
     else if error
