@@ -18,7 +18,7 @@ exports.show = (req, res) ->
   .populate 'preferred'
   .exec (err, customer) ->
     return errorMessage res, err.message, 500 if err
-    return errorMessage res, 'Customer Not Found', 404 if not customer
+    return errorMessage res, 'Not Found', 404 if not customer
     res.json customer
 
 # Creates a new customer in the DB.
@@ -35,7 +35,7 @@ exports.update = (req, res) ->
   Customer.findById req.params.id
   .exec (err, customer) ->
     return errorMessage res, err.message, 500 if err
-    return errorMessage res, 'Customer Not Found', 404 if not customer
+    return errorMessage res, 'Not Found', 404 if not customer
     updated = _.merge customer, req.body
     updated.save (err) ->
       return errorMessage res, err.message, 500 if err
@@ -47,7 +47,7 @@ exports.update = (req, res) ->
 exports.destroy = (req, res) ->
   Customer.findById req.params.id, (err, customer) ->
     return errorMessage res, err.message, 500 if err
-    return errorMessage res, 'Customer Not Found', 404 if not customer
+    return errorMessage res, 'Not Found', 404 if not customer
     customer.remove (err) ->
       return errorMessage res, err.message, 500 if err
       successMessage res, 'Customer removed'
